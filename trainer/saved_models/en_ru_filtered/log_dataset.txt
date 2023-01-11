@@ -1,0 +1,90 @@
+--------------------------------------------------------------------------------
+dataset_root: all_data/en_ru_filtered
+opt.select_data: ['en_ru_filtered']
+opt.batch_ratio: ['1']
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+dataset_root: all_data/en_ru_filtered
+opt.select_data: ['en_ru_filtered']
+opt.batch_ratio: ['1']
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+dataset_root: all_data/en_ru_filtered
+opt.select_data: ['en_ru_filtered']
+opt.batch_ratio: ['1']
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+dataset_root: Z:/EasyOCR/trainer/all_data
+opt.select_data: ['en_ru_filtered']
+opt.batch_ratio: ['1']
+--------------------------------------------------------------------------------
+dataset_root:    Z:/EasyOCR/trainer/all_data	 dataset: en_ru_filtered
+sub-directory:	/en_ru_filtered\en_ru_val	 num samples: 108663
+num total samples of en_ru_filtered: 108663 x 1.0 (total_data_usage_ratio) = 108663
+num samples of en_ru_filtered per batch: 32 x 1.0 (batch_ratio) = 32
+--------------------------------------------------------------------------------
+Total_batch_size: 32 = 32
+--------------------------------------------------------------------------------
+dataset_root:    Z:/EasyOCR/trainer/all_data/en_ru_filtered/en_ru_val	 dataset: /
+sub-directory:	/.	 num samples: 108663
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+dataset_root: Z:/EasyOCR/trainer/all_data
+opt.select_data: ['en_ru_filtered']
+opt.batch_ratio: ['1']
+--------------------------------------------------------------------------------
+dataset_root:    Z:/EasyOCR/trainer/all_data	 dataset: en_ru_filtered
+sub-directory:	/en_ru_filtered\en_ru_val	 num samples: 108663
+num total samples of en_ru_filtered: 108663 x 1.0 (total_data_usage_ratio) = 108663
+num samples of en_ru_filtered per batch: 32 x 1.0 (batch_ratio) = 32
+--------------------------------------------------------------------------------
+Total_batch_size: 32 = 32
+--------------------------------------------------------------------------------
+dataset_root:    Z:/EasyOCR/trainer/all_data/en_ru_filtered/en_ru_val	 dataset: /
+sub-directory:	/.	 num samples: 108663
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+dataset_root: Z:/EasyOCR/trainer/all_data
+opt.select_data: ['en_ru_filtered']
+opt.batch_ratio: ['1']
+--------------------------------------------------------------------------------
+dataset_root:    Z:/EasyOCR/trainer/all_data	 dataset: en_ru_filtered
+sub-directory:	/en_ru_filtered\en_ru_val	 num samples: 108663
+num total samples of en_ru_filtered: 108663 x 1.0 (total_data_usage_ratio) = 108663
+num samples of en_ru_filtered per batch: 32 x 1.0 (batch_ratio) = 32
+--------------------------------------------------------------------------------
+Total_batch_size: 32 = 32
+--------------------------------------------------------------------------------
+dataset_root:    Z:/EasyOCR/trainer/all_data/en_ru_filtered/en_ru_val	 dataset: /
+sub-directory:	/.	 num samples: 108663
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+dataset_root: Z:/EasyOCR/trainer/all_data
+opt.select_data: ['en_ru_filtered']
+opt.batch_ratio: ['1']
+--------------------------------------------------------------------------------
+dataset_root:    Z:/EasyOCR/trainer/all_data	 dataset: en_ru_filtered
+sub-directory:	/en_ru_filtered\en_ru_val	 num samples: 108663
+num total samples of en_ru_filtered: 108663 x 1.0 (total_data_usage_ratio) = 108663
+num samples of en_ru_filtered per batch: 32 x 1.0 (batch_ratio) = 32
+--------------------------------------------------------------------------------
+Total_batch_size: 32 = 32
+--------------------------------------------------------------------------------
+dataset_root:    Z:/EasyOCR/trainer/all_data/en_ru_filtered/en_ru_val	 dataset: /
+sub-directory:	/.	 num samples: 108663
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+dataset_root: Z:/EasyOCR/trainer/all_data
+opt.select_data: ['en_ru_filtered']
+opt.batch_ratio: ['1']
+--------------------------------------------------------------------------------
+dataset_root:    Z:/EasyOCR/trainer/all_data	 dataset: en_ru_filtered
+sub-directory:	/en_ru_filtered\en_ru_val	 num samples: 108663
+num total samples of en_ru_filtered: 108663 x 1.0 (total_data_usage_ratio) = 108663
+num samples of en_ru_filtered per batch: 32 x 1.0 (batch_ratio) = 32
+--------------------------------------------------------------------------------
+Total_batch_size: 32 = 32
+--------------------------------------------------------------------------------
+dataset_root:    Z:/EasyOCR/trainer/all_data/en_ru_filtered/en_ru_val	 dataset: /
+sub-directory:	/.	 num samples: 108663
+--------------------------------------------------------------------------------
