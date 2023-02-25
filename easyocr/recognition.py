@@ -9,6 +9,7 @@ from collections import OrderedDict
 import importlib
 from .utils import CTCLabelConverter
 import math
+import onnxruntime as rt
 
 def custom_mean(x):
     return x.prod()**(2.0/np.sqrt(len(x)))
@@ -96,6 +97,9 @@ class AlignCollate(object):
         image_tensors = torch.cat([t.unsqueeze(0) for t in resized_images], 0)
         return image_tensors
 
+def to_numpy(tensor):
+    return tensor.detach().cpu().numpy() if tensor.requires_grad else tensor.cpu().numpy()
+
 def recognizer_predict(model, converter, test_loader, batch_max_length,\
                        ignore_idx, char_group_idx, decoder = 'greedy', beamWidth= 5, device = 'cpu'):
     model.eval()
@@ -108,7 +112,15 @@ def recognizer_predict(model, converter, test_loader, batch_max_length,\
             length_for_pred = torch.IntTensor([batch_max_length] * batch_size).to(device)
             text_for_pred = torch.LongTensor(batch_size, batch_max_length + 1).fill_(0).to(device)
 
-            preds = model(image, text_for_pred)
+            #preds = model(image, text_for_pred)
+            providers = ['CPUExecutionProvider']
+            session = rt.InferenceSession("recog.onnx", providers=providers)
+            inputs = session.get_inputs()
+
+            inp = {inputs[0].name: to_numpy(image)}
+            preds = session.run(None, inp)
+
+            preds = torch.from_numpy(preds[0])
 
             # Select max probabilty (greedy decoding) then decode index to character
             preds_size = torch.IntTensor([preds.size(1)] * batch_size)

@@ -10,6 +10,8 @@ from .craft_utils import getDetBoxes, adjustResultCoordinates
 from .imgproc import resize_aspect_ratio, normalizeMeanVariance
 from .craft import CRAFT
 
+import onnxruntime as rt
+
 def copyStateDict(state_dict):
     if list(state_dict.keys())[0].startswith("module"):
         start_idx = 1
@@ -20,6 +22,9 @@ def copyStateDict(state_dict):
         name = ".".join(k.split(".")[start_idx:])
         new_state_dict[name] = v
     return new_state_dict
+
+def to_numpy(tensor):
+    return tensor.detach().cpu().numpy() if tensor.requires_grad else tensor.cpu().numpy()
 
 def test_net(canvas_size, mag_ratio, net, image, text_threshold, link_threshold, low_text, poly, device, estimate_num_chars=False):
     if isinstance(image, np.ndarray) and len(image.shape) == 4:  # image is batch of np arrays
@@ -43,13 +48,21 @@ def test_net(canvas_size, mag_ratio, net, image, text_threshold, link_threshold,
 
     # forward pass
     with torch.no_grad():
-        y, feature = net(x)
+        #y, feature = net(x)
+        providers = ['CPUExecutionProvider']
+        session = rt.InferenceSession("craft.onnx", providers=providers)
+        input_name = session.get_inputs()[0].name
+
+        # Prepare input tensor for inference
+        inp = {input_name: to_numpy(x)}
+        # Run inference and get output
+        y, _ = session.run(None, inp)
 
     boxes_list, polys_list = [], []
     for out in y:
         # make score and link map
-        score_text = out[:, :, 0].cpu().data.numpy()
-        score_link = out[:, :, 1].cpu().data.numpy()
+        score_text = out[:, :, 0]
+        score_link = out[:, :, 1]
 
         # Post-processing
         boxes, polys, mapper = getDetBoxes(
